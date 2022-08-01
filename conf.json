@@ -1,10 +1,10 @@
 {
     "name": "reCAPTCHA",
-    "brief": "Never gonna give you up",
-    "version": "1.0",
+    "brief": "请勿在sitekey与secret填写有误的情况下启用登录模块验证，因为这将导致管理员无法登录后台。如果没有获取sitekey与secret，请先不要启用模块。",
+    "version": "1.2",
     "bbs_version": "4.0",
-    "installed": 1,
-    "enable": 1,
+    "installed": 0,
+    "enable": 0,
     "hooks_rank": [],
     "dependencies": []
 }
