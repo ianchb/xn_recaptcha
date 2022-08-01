@@ -1,0 +1,7 @@
+<?php 
+    include_once APP_PATH.'plugin/xn_recaptcha/hook/recaptcha.php';
+    $btn = $conf['user_create_email_on'] ? '#sendcode' : '#submit';
+    $script = <<<SCRIPT
+SCRIPT;
+    echo getRecaptchaScript('quick_reply', $script);
+?>

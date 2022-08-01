@@ -1,0 +1,11 @@
+<div name="recaptcha-box" id="recaptcha" class="g-recaptcha" data-sitekey="data-sitekey" data-callback="captcha_onclick" data-expired-callback="captcha_onclick">
+</div>
+<script>
+document.getElementById("recaptcha").setAttribute('data-sitekey','<?php echo $config['sitekey'];?>');
+</script>
+<input type="hidden" name="recaptcha" id="recaptchaValidator" />
+<script>
+function captcha_onclick() {
+    document.getElementById('recaptchaValidator').value = grecaptcha.getResponse();
+}
+</script>
