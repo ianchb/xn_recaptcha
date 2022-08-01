@@ -22,7 +22,7 @@ function validate($mode) {
     $secret = $config['secret'];
     if (!isset($_POST['recaptcha']) || empty($_POST['recaptcha']))
     {
-        message('recaptcha-box', '请完成人机验证');
+        message('recaptcha-box', '人机验证无效，请刷新页面或重新验证');
     }
     else
     {
