@@ -21,7 +21,9 @@ function validate($mode) {
     $config = getConfig();
     if (empty($config['enable'][$mode])) return ;
     $secret = $config['secret'];
-
+    if(empty($_POST['recaptcha'])){
+    message('recaptcha-box', '请完成人机验证');
+    }
 $verifyResponse = file_get_contents('https://www.recaptcha.net/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['recaptcha']);
 $result = json_decode($verifyResponse);
     if(!$result->success){
