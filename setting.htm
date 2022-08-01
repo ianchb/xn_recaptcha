@@ -1,7 +1,19 @@
 <?php include _include(ADMIN_PATH.'view/htm/header.inc.htm');?>
 <form class="card">
     <div class="card-body">
+        <h2>
+            reCAPTCHA for Xiuno
+        </h2>
+        <div class="alert alert-info">
+            <div>要开始使用本插件，请前往：
+                <a href="https://www.google.com/recaptcha/admin/create" target="_blank">Google reCAPTCHA</a>
+            </div>
+            <div>请确保sitekey与secret<strong>填写准确无误</strong>，再启用相关模块。</div>
+        </div>
+        <div class="alert alert-warning"><strong>警告！</strong>请勿在sitekey与secret填写有误的情况下启用登录模块验证，因为这将导致管理员无法登录后台。如果没有获取sitekey与secret，请先<a href="/admin/?plugin-disable-xn_recaptcha.htm" target="_blank">点击禁用模块</a>。</div>
         <div class="alert alert-success msg" style="display: none">
+        </div>
+        <div class="alert alert-danger msg2" style="display: none">
         </div>
         <div class="row">
             <div class="form-group row col-lg-6">
@@ -23,7 +35,7 @@
                 <input class="form-check-input" <?php if(!empty($config[ 'enable'][ 'user_login'])) {?> checked
                 <?php }?> type="checkbox" name="enable[user_login]" id="user_login">
                 <label class="form-check-label" for="user_login">
-                    登陆模块
+                    登录模块
                 </label>
             </div>
             <div class="col">
@@ -63,18 +75,31 @@
 </form>
 <script src="../view/js/jquery-3.1.0.js<?php echo $static_version;?>"></script>
 <script>
-    var timer = null;
+var timer = null;
     $('.submit').click(function () {
-        $.post('', $('form').serialize(), function (r) {
-            if (r && r.code === 1) {
-                $('.msg').text('修改成功').show();
-            } else {
-                $('.msg').text(JSON.stringify(r)).show();
+        var v1=document.getElementById("sitekey").value;
+        var v2=document.getElementById("secret").value;
+            if (v1==null || v1=="" || v2=="" || v2==null)
+            {
+                $('.msg2').text('修改无效：请正确填写 sitekey 和/或 secret').show();
+                timer && clearTimeout(timer);
+                timer = setTimeout(function() {
+                    $('.msg2').hide();
+                }, 2000)
             }
-            timer && clearTimeout(timer);
-            timer = setTimeout(function() {
-                $('.msg').hide();
-            }, 1500)
-        }, 'json')
-    })
+            else
+            {
+                $.post('', $('form').serialize(), function (r) {
+                    if (r && r.code === 1) {
+                        $('.msg').text('修改成功').show();
+                    } else {
+                        $('.msg2').text(JSON.stringify(r)).show();
+                    }
+                timer && clearTimeout(timer);
+                timer = setTimeout(function() {
+                    $('.msg').hide();
+                    $('.msg2').hide();
+                }, 1500)
+             }, 'json')}
+        })
 </script>
