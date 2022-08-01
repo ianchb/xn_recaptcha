@@ -1,0 +1,10 @@
+{
+    "name": "reCAPTCHA",
+    "brief": "Never gonna give you up",
+    "version": "1.0",
+    "bbs_version": "4.0",
+    "installed": 1,
+    "enable": 1,
+    "hooks_rank": [],
+    "dependencies": []
+}
