@@ -1,11 +1,9 @@
-<div name="recaptcha-box" id="recaptcha" class="g-recaptcha" data-sitekey="data-sitekey" data-callback="captcha_onclick" data-expired-callback="captcha_onclick">
+<div name="recaptcha-box" id="recaptcha" class="g-recaptcha" data-sitekey="data-sitekey" data-callback="captcha_getrs" data-expired-callback="captcha_getrs">
 </div>
 <script>
 document.getElementById("recaptcha").setAttribute('data-sitekey','<?php echo $config['sitekey'];?>');
-</script>
-<input type="hidden" name="recaptcha" id="recaptchaValidator" />
-<script>
-function captcha_onclick() {
+function captcha_getrs() {
     document.getElementById('recaptchaValidator').value = grecaptcha.getResponse();
 }
 </script>
+<input type="hidden" name="recaptcha" id="recaptchaValidator" />
