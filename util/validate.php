@@ -1,4 +1,3 @@
-
 <?php
 
 function getConfig() {
@@ -30,7 +29,7 @@ function validate($mode) {
         $verifyResponse = file_get_contents('https://www.recaptcha.net/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['recaptcha']);
         $result = json_decode($verifyResponse);
         if(!$result->success){
-            message('recaptcha-box', '人机验证无效，请重新验证');
+            message('recaptcha-box', '人机验证无效，请刷新页面或重新验证');
         }
     }
 }
