@@ -22,10 +22,35 @@
                     <input value="<?php echo $config['sitekey']?>" name="sitekey" type="text" class="form-control" id="sitekey" placeholder="sitekey">
                 </div>
             </div>
+
             <div class="form-group row col-lg-6">
                 <label for="secret" class="col-sm-12 col-form-label">secret</label>
                 <div class="col-sm-12">
                     <input value="<?php echo $config['secret']?>" name="secret" type="text" class="form-control" id="secret" placeholder="secret">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group row col-lg-6">
+                <label for="sitekey" class="col-sm-12 col-form-label">验证类型</label>
+                <div class="col-sm-12">
+                    <select value="<?php echo $config['type']?>" class="custom-select" name="type" id="">
+                        <option <?php if($config[ 'type']=='checkbox' ) {?> selected
+                            <?php }?> value="checkbox">v2 Checkbox</option>
+                        <option <?php if($config[ 'type']=='invisible' ) {?> selected
+                            <?php }?> value="invisible">v2 Invisible</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row col-lg-6">
+                <label for="secret" class="col-sm-12 col-form-label">浅色/深色主题切换（仅v2 Checkbox）</label>
+                <div class="col-sm-12">
+                    <select value="<?php echo $config['theme']?>" class="custom-select" name="theme" id="">
+                        <option <?php if($config[ 'theme']=='light' ) {?> selected
+                            <?php }?> value="light">浅色 Light</option>
+                        <option <?php if($config[ 'theme']=='dark' ) {?> selected
+                            <?php }?> value="dark">深色 Dark</option>
+                    </select>
                 </div>
             </div>
         </div>
