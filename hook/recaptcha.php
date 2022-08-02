@@ -6,7 +6,9 @@ function getRecaptchaScript($moduleName, $script) {
     $config = setting_get('xn_recaptcha');
     $config = $config ? json_decode($config, true) : $config = array(
         "sitekey" => "",
-        "secret" => ""
+        "secret" => "",
+        "theme" => "",
+        "type" => ""
     );
     include_once APP_PATH.'plugin/xn_recaptcha/hook/template.htm';
 ?>
