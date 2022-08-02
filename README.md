@@ -1,7 +1,7 @@
 # xn_recaptcha
 reCAPTCHA for Xiuno BBS.  
 Next release may include:  
-- Checkbox style (Light/Dark)  
+- √ Checkbox style (Light/Dark)  
 - Auto reload reCAPTCHA  
 
 --------
