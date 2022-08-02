@@ -2,6 +2,10 @@
 </div>
 <script>
 document.getElementById("recaptcha").setAttribute('data-sitekey','<?php echo $config['sitekey'];?>');
+var type='<?php echo $config['type']; ?>';
+if(type=="checkbox"){
+document.getElementById("recaptcha").setAttribute('data-theme','<?php echo $config['theme'];?>');
+}
 function captcha_getrs() {
     document.getElementById('recaptchaValidator').value = grecaptcha.getResponse();
 }
