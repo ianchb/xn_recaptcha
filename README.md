@@ -8,6 +8,7 @@ Next release may include:
 
 Now it only supports **reCAPTCHA v2 Checkbox**, and may contain bugs.  
 ![image](https://user-images.githubusercontent.com/45872450/182069828-d8ad255b-3117-4781-94ab-416edcd1eec0.png)  
+![image](https://user-images.githubusercontent.com/45872450/182297174-4a325e31-7df7-4d10-bac4-46085a1bf9d3.png)  
 
 --------
 
